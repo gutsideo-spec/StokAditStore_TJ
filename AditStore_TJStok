@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>jualan aditya</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* hp only */
+@media (min-width:768px) {
+  body {
+    background: black;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    text-align: center;
+  }
+  body::before {
+    content: "akses ditolak ❌\a hanya untuk hp 📱";
+    white-space: pre;
+  }
+  .app {
+    display: none;
+  }
+}
+
+body {
+  margin: 0;
+  color: #e0faff;
+}
+
+/* video background */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none; /* supaya gak ganggu klik */
+}
+
+/* overlay gelap biar tulisan keliatan */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+.app {
+  padding: 14px;
+}
+
+h1 {
+  text-align: center;
+  color: #00bfff;
+  text-shadow: 0 0 10px #00bfff, 0 0 25px #00ffff;
+  margin-bottom: 6px;
+}
+
+.music-title {
+  text-align: center;
+  color: #00ffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.play-btn {
+  width: 160px;
+  margin: 0 auto 16px;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 12px #00ffff;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.circle-video {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 15px auto;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.circle-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* box dan button lainnya tetap */
+.box {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.button {
+  padding: 14px;
+  text-align: center;
+  border-radius: 14px;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 12px #00ffff;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.list {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+.secret {
+  text-align: center;
+  margin: 18px 0;
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.qr {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00ffff;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- background video -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="https://files.catbox.moe/cvxw82.mp4" type="video/mp4" />
+</video>
+<div class="overlay"></div>
+
+<!-- music -->
+<audio id="bgm" loop>
+  <source src="https://files.catbox.moe/nbkvqf.mp3" type="audio/mpeg" />
+</audio>
+
+<div class="app">
+
+  <h1>welcome to jualan aditya 🐠🐋🐟</h1>
+  <div class="music-title">🎵 jatuh cinta – armada</div>
+  <div class="play-btn" onclick="toggleMusic()">▶ play music</div>
+
+  <!-- circle video -->
+  <div class="circle-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/gt4fdz.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- menu -->
+  <div class="box">
+    <div class="button" onclick="showHome()">home</div>
+    <div class="button" onclick="showList()">list jualan</div>
+    <div class="button" onclick="showIdent()">ident adit</div>
+    <div class="button" onclick="orderWa()">order</div>
+  </div>
+
+  <div class="secret">secret akan datang ketika joki mwahahhahahah</div>
+
+  <!-- list jualan -->
+  <div id="list" class="hidden">
+
+    <div class="box">
+      <div class="button" onclick="toggle('fish')">ikan fish it</div>
+      <div id="fish" class="list hidden">
+ready stok!
+maja biru mutasi :14k
+maja biru big :13k
+maja biru kecil :11k
+maja merah :20k
+locnes kuno :30k
+mega :11k satu
+laba laba :6k
+emerald whale big :16K
+
+_ragu? mc in fee lu_
+monster shark big batu :10k
+kraken 1 :5k
+dephseeker rey big :8k
+1m koin :3k
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="button" onclick="toggle('joki')">joki fish it</div>
+      <div id="joki" class="list hidden">
+
+🐟 OPEN JOKI FISHT IT 🐟
+💰 4K SEHARI 🔥
+
+📆 TARGET 10 HARI
+
+1️⃣ Hari 1 → 4K 💸 (Total: 4K)
+2️⃣ Hari 2 → 4K 💸 (Total: 8K)
+3️⃣ Hari 3 → 4K 💸 (Total: 12K)
+4️⃣ Hari 4 → 4K 💸 (Total: 16K)
+5️⃣ Hari 5 → 4K 💸 (Total: 20K)
+6️⃣ Hari 6 → 4K 💸 (Total: 24K)
+7️⃣ Hari 7 → 4K 💸 (Total: 28K)
+8️⃣ Hari 8 → 4K 💸 (Total: 32K)
+9️⃣ Hari 9 → 4K 💸 (Total: 36K)
+🔟 Hari 10 → 4K 💸 (
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMusic() {
+    const music = document.getElementById("bgm");
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+
+  function toggle(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle("hidden");
+    }
+  }
+
+  // Dummy functions for buttons (kamu bisa isi sesuai kebutuhan)
+  function showHome() {
+    alert("Home clicked!");
+  }
+  function showList() {
+    const list = document.getElementById("list");
+    list.classList.toggle("hidden");
+  }
+  function showIdent() {
+    alert("Ident Adit clicked!");
+  }
+  function orderWa() {
+    window.open("https://wa.me/6281234567890", "_blank");
+  }
+</script>
+
+</body>
+</html>
